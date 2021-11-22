@@ -1,0 +1,26 @@
+public class LineSegment {
+	
+	private Point a;
+	private Point b;
+	
+	public LineSegment(Point a, Point b) {
+		this.a = a;
+		this.b = b;
+	}
+
+	public Point getA() {
+		return a;
+	}
+
+	public Point getB() {
+		return b;
+	}
+	
+	public double length() {
+		double dx = a.getX() - b.getX();
+		double dy = a.getY() - b.getY();
+		
+		return Math.sqrt(dx*dx + dy*dy);
+	}
+	
+}
