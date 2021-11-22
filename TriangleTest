@@ -1,0 +1,64 @@
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.Random;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class TriangleTest {
+
+	Triangle triangle;
+	
+	@BeforeEach
+	void setUp() throws Exception {
+		this.triangle = new Triangle(new Point(0, 0), new Point(0, 3), new Point(4, 0));
+	}
+
+	@Test
+	void testArea() {
+		assertEquals(6.0, this.triangle.area());
+	}
+	
+	@Test
+	void testPerimeter() {
+		assertEquals(12.0, this.triangle.perimeter());
+	}
+	
+	@Test 
+	void testContains() {
+		assertTrue(this.triangle.contains(new Point(1, 1)));
+	}
+
+	@Test 
+	void testContains2() {
+		assertTrue(this.triangle.contains(new Point(0.001, 0.001)));
+	}
+
+	@Test 
+	void testContains3() {
+		assertTrue(this.triangle.contains(new Point(0.00, 0.00)));
+	}
+
+	
+	@Test 
+	void testNotContains() {
+		assertFalse(this.triangle.contains(new Point(4, 4)));
+	}
+
+	@Test
+	void testContainsRandom() {
+		Random r = new Random();
+		
+		for (int i = 0; i<1_000_000; i++) {
+			Point p = new Point(r.nextDouble(), r.nextDouble());
+			assertTrue(this.triangle.contains(p), "Failed in i=" + i + " for coordinates: (" + p.getX() + ", " + p.getY() + ")");
+		}
+	}
+	
+	@Test 
+	void testNotContains2() {
+		assertFalse(this.triangle.contains(new Point(-0.001, -0.001)));
+	}
+
+	
+	
+	
+}
