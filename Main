@@ -1,0 +1,21 @@
+public class Main {
+	
+		public static void main(String[] args) {
+			
+			Shape s = new Circle(new Point(3, 4), 5);
+			
+			System.out.println("Perimeter: " + s.perimeter());
+			System.out.println("Area: " + s.area());
+			
+			
+			Circle c = (Circle)s;
+			
+			System.out.println("Radius: " + c.getRadius());
+			
+			Triangle t = (Triangle)s;
+			
+			System.out.println("Point A, x coordinate: " + t.getA().getX());
+			
+		}
+
+	}
