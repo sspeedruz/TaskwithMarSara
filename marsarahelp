@@ -1,0 +1,52 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class UniqueNumbers {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		int y = scan.nextInt();
+		
+		int [] inputs = new int[y];
+		
+		int [] result = new int[y];
+				
+	for(int counter = 0; counter < y; counter++) {
+		
+		inputs[counter]=scan.nextInt();
+		
+	}
+	
+	int lastDupe = 0;
+	
+	for(int i = 0; i < inputs.length;i++) {
+	
+		boolean isDupe = false;
+	
+		for(int j = 0; j < result.length;j++) {
+	
+			if(result[j] == inputs[i]) {
+	
+				isDupe = true;
+	
+				break; ​
+	
+				​}
+	
+	}
+	
+		if(!isDupe) {
+	
+			System.out.println(inputs[i]);
+	
+			result[lastDupe++] = inputs[i];
+	}
+	}
+	
+	
+	}
+	
+}
+
